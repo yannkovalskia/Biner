@@ -1,0 +1,79 @@
+#decimal_to_binary_converter
+
+def desimal_biner(desimal):
+    biner=""
+    if desimal == 0:
+        return "0"
+    while desimal > 0:
+        sisa=desimal % 2
+        biner=str(sisa)+biner
+        desimal=desimal//2
+    return biner
+
+#binary_to_decimal_converter
+
+def biner_desimal(biner):
+    desimal=0
+    panjang=len(biner)
+    for i in range (panjang):
+        digit=int(biner[panjang-1-i])
+        if digit != 0 and digit != 1:
+            return "Bukan biner ini bang!!!"
+        desimal += digit * (2**i)
+    return desimal
+
+#arithmetic_operations
+
+def operasi_aritmatika():
+    print("====OPERASI ARITMATIKA====")
+    print("1. Penjumlahan ")
+    print("2. Pengurangan ")
+    print("3. Perkalian ")
+    print("4. Pembagian ")
+    pilihan=input("1/2/3/4: ")
+
+    a=int(input("Angka Pertama: "))
+    b=int(input("Angka Kedua: "))
+    if pilihan == "1":
+        hasil=a+b
+        print("Hasil penjumlahan: ", hasil)
+    elif pilihan == "2":
+        hasil=a-b
+        print("Hasil pengurangan: ", hasil)
+    elif pilihan == "3":
+        hasil=a*b
+        print("Hasil perkalian: ", hasil)
+    elif pilihan == "4":
+        hasil=a/b
+        print("Hasil pembagian: ", hasil)
+    else:
+        print("Pilihan tidak valid")
+
+#menu
+
+def menu():
+    print("=====KONVERSI BILANGAN=====")
+    print("1. Desimal ke Biner")
+    print("2. Biner ke Desimal")
+    print("3. Operasi Aritmatika")
+    print("4. Keluar")
+
+    while True:
+        pilihan=input("Mau apa hari ini? 1/2/3/4 ")
+
+        if pilihan == "1":
+            desimal = int(input("Masukkan angka desimal "))
+            print("Hasil= ", desimal_biner (desimal))
+        elif pilihan == "2":
+            biner=input("Masukkan biner: ")
+            hasil=biner_desimal(biner)
+            print("Hasil= ", hasil)
+        elif pilihan == "3":
+            operasi_aritmatika()
+        elif pilihan == "4":
+            print("G'Night")
+            break
+        else:
+            print("Pilihan tidak tersedia")
+
+menu()
